@@ -10,6 +10,7 @@ const dreamsContainer = document.getElementById('dreamsContainer');
 document.addEventListener('DOMContentLoaded', loadDreams); 
 
 // Form submission
+// Form submission
 dreamForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -33,7 +34,10 @@ dreamForm.addEventListener('submit', async (e) => {
             body: JSON.stringify({ dream_text: dream }),
         });
 
+        // 1. Parse JSON response first
+        const data = await response.json();
 
+        // 2. Check response status using the parsed data
         if (!response.ok) {
             showErrorMessage(data.error || 'Failed to process your dream. Please try again.');
             return;

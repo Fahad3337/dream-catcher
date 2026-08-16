@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -33,3 +34,4 @@ initDatabase().then(() => {
 }).catch(error => {
   console.error('Failed to initialize database:', error);
 });
+console.log("TEST API KEY:", process.env.GEMINI_API_KEY);
